@@ -1,4 +1,4 @@
-module gogateway
+module auth-gateway
 
 require (
 	github.com/gbrlsnchs/jwt/v3 v3.0.0-beta.0
