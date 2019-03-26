@@ -16,7 +16,7 @@ type SecurityFilter interface {
 }
 
 type SecurityFilterImpl struct {
-	pkey jwk.RSAPublicKey
+	pkey interface{}
 }
 
 func NewSecurityFilter(jwkUrl string) SecurityFilter {
@@ -28,7 +28,7 @@ func NewSecurityFilter(jwkUrl string) SecurityFilter {
 	if e != nil {
 		log.Fatalf("Failed to fetch JWK key: %v", e)
 	}
-	return &SecurityFilterImpl{key.(jwk.RSAPublicKey)}
+	return &SecurityFilterImpl{key}
 }
 
 func (s *SecurityFilterImpl) Filter(res http.ResponseWriter, req *http.Request, action func()) {
