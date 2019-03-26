@@ -1,0 +1,9 @@
+proxy:
+  hosts:
+    - url: 'http://localhost:8000/'
+      routes:
+        - httpMethod: GET
+          path: '/aaa'
+          version: 1.0.0
+          secured: true
+    
